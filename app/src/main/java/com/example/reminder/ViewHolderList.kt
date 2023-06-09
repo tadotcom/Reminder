@@ -14,7 +14,6 @@ class ViewHolderList(itemView: View) : RecyclerView.ViewHolder(itemView){
     init {
         itemView.setOnClickListener {
             val position:Int =adapterPosition
-            Toast.makeText(itemView.context,"${taskTitle[position]}さんです", Toast.LENGTH_SHORT).show()
         }
     }
 }

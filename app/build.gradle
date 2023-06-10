@@ -7,6 +7,10 @@ android {
     namespace 'com.example.reminder'
     compileSdk 33
 
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.example.reminder"
         minSdk 28

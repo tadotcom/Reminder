@@ -14,5 +14,8 @@ class MainViewModel : ViewModel() {
     val taskTime: MutableLiveData<Time> by lazy { MutableLiveData<Time>() }
     val taskImportance: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
-    fun fetchTask() {}
+    fun fetchTask() {
+        taskTitle.postValue("")
+        taskDetail.postValue("")
+    }
 }

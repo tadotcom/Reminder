@@ -13,7 +13,7 @@ class TaskRepository {
 
     //データを取得する
     fun fetchTask() {
-        val docRef = database.collection("AAA").document("yioi4MnSeUc7DDVFZNzr")
+        val docRef = database.collection("reminder").document("taskListData")
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {

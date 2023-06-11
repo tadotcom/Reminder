@@ -24,6 +24,8 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //mainViewModel.getTaskList()
+
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 

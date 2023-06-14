@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.reminder.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by viewModels()
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+    private var binding: FragmentMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +24,18 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //mainViewModel.getTaskList()
+        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        val view = binding!!.root
+
+        //リサイクルビューを表示
+        val linearLayoutManager = LinearLayoutManager(view.context)
+        val adapter = RecyclerAdapter()
+        binding!!.taskList.layoutManager = LinearLayoutManager(view.context)
+        binding!!.taskList.layoutManager = linearLayoutManager
+        binding!!.taskList.adapter = adapter
+
+        return view
     }
 
     companion object {

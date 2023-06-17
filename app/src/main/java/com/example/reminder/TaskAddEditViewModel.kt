@@ -1,4 +1,4 @@
 package com.example.reminder
 
-class AddEditViewModel {
+class TaskAddEditViewModel {
 }

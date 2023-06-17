@@ -3,14 +3,14 @@ package com.example.reminder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AddEditActivity : AppCompatActivity() {
+class TaskAddEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_edit)
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment = AddEditFragment()
+        val fragment = TaskAddEditFragment()
         fragmentTransaction.add(R.id.addedit_fragment, fragment)
         fragmentTransaction.commit()
     }

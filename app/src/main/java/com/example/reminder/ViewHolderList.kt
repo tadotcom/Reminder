@@ -6,7 +6,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class ViewHolderList(itemView: View) : RecyclerView.ViewHolder(itemView){
+class ViewHolderList(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     val task: TextView =itemView.findViewById(R.id.task)
     private val recyclerAdapter = RecyclerAdapter()
     private val taskTitle  = recyclerAdapter.taskTitleList

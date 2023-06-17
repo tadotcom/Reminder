@@ -30,6 +30,14 @@ class TaskDetailFragment : Fragment() {
         binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
         binding.viewModel = taskDetailViewModel
 
+        //バックボタンのオブザーブ
+        val backBtnObserver = Observer<Boolean> { backbtn ->
+            if(taskDetailViewModel.backBtnLiveData.value == true) {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         //削除ボタンのオブザーブ
         val deleteBtnObserver = Observer<Boolean> { deletebtn ->
             if(taskDetailViewModel.deleteBtnLiveData.value == true) {
@@ -45,6 +53,7 @@ class TaskDetailFragment : Fragment() {
             }
         }
 
+        taskDetailViewModel.deleteBtnLiveData.observe(viewLifecycleOwner, backBtnObserver)
         taskDetailViewModel.deleteBtnLiveData.observe(viewLifecycleOwner, deleteBtnObserver)
         taskDetailViewModel.editBtnLiveData.observe(viewLifecycleOwner, editBtnObserver)
 

@@ -13,8 +13,10 @@ class MainViewModel : ViewModel() {
     val taskCalender: MutableLiveData<Calendar> by lazy { MutableLiveData<Calendar>() }
     val taskTime: MutableLiveData<Time> by lazy { MutableLiveData<Time>() }
     val taskImportance: MutableLiveData<String> by lazy { MutableLiveData<String>() }
+    val addTaskBtnLiveData: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
 
-    fun getTaskList() {
-        repository.fetchTask()
+    //タスク追加ボタンクリック
+    fun addTaskBntClick() {
+        addTaskBtnLiveData.value = true
     }
 }

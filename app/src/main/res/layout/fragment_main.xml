@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="view_model" type="com.example.reminder.MainViewModel" />
+        <variable name="viewmodel" type="com.example.reminder.MainViewModel" />
     </data>
 
     <FrameLayout
@@ -32,6 +32,7 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/add"
+                    android:onClick="@{() -> viewmodel.addTaskBntClick()}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#ff69b4"

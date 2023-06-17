@@ -34,7 +34,7 @@ class TaskAddEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_edit, container, false)
+        return inflater.inflate(R.layout.fragment_task_add_edit, container, false)
     }
 
     companion object {

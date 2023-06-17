@@ -1,109 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/returnTodoList"
-        android:src="@drawable/back_button"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
+    <data>
+        <variable name="view_model" type="com.example.reminder.TaskDetailViewModel" />
+    </data>
 
-    <TextView
-        android:text="@string/task_title"
-        android:textSize="30sp"
-        android:layout_marginTop="50sp"
-        android:layout_marginStart="20sp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:textSize="30sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/returnTodoList"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_button" />
 
-    <TextView
-        android:text="@string/task_detail"
-        android:textSize="30sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="50sp"
+            android:text="@string/task_title"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/detail"
-        android:textSize="30sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:textSize="30sp" />
 
-    <TextView
-        android:text="@string/task_date"
-        android:textSize="30sp"
-        android:layout_marginTop="50sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:text="@string/task_detail"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/taskDate"
-        android:text="2023年5月2日"
-        android:textSize="30sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:textSize="30sp" />
 
-    <TextView
-        android:text="@string/task_time"
-        android:textSize="30sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="50sp"
+            android:text="@string/task_date"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/taskTime"
-        android:text="19時02分"
-        android:textSize="30sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/taskDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:text="2023年5月2日"
+            android:textSize="30sp" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:text="@string/task_time"
+            android:textSize="30sp" />
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/taskTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:text="19時02分"
+            android:textSize="30sp" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/deleteBnt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ff6347"
-                android:gravity="center|bottom"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="100dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/delete_button" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/editBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#66cdaa"
-                android:gravity="center|bottom"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="20dp"
-                android:src="@drawable/edit_button" />
-        </RelativeLayout>
-    </FrameLayout>
-</LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/deleteBnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="#ff6347"
+                    android:gravity="center|bottom"
+                    android:src="@drawable/delete_button" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/editBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="20dp"
+                    android:backgroundTint="#66cdaa"
+                    android:gravity="center|bottom"
+                    android:src="@drawable/edit_button" />
+            </RelativeLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="view_model" type="com.example.reminder.TaskAddEditViewModel" />
+    </data>
 
-    <ImageView
-        android:id="@+id/returnTodoList"
-        android:src="@drawable/back_button"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
-
-    <TextView
-        android:text="@string/task_title"
-        android:textSize="30sp"
-        android:layout_marginTop="50sp"
-        android:layout_marginStart="20sp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="タスクのタイトルを入力">
+        <ImageView
+            android:id="@+id/returnTodoList"
+            android:src="@drawable/back_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/taskTitle"
+        <TextView
+            android:text="@string/task_title"
+            android:textSize="30sp"
+            android:layout_marginTop="50sp"
             android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="タスクのタイトルを入力">
 
-    <TextView
-        android:text="@string/task_detail"
-        android:textSize="30sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginStart="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/taskTitle"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="タスクの詳細を入力">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/taskDetail"
-            android:minLines="5"
-            android:maxLines="5"
+        <TextView
+            android:text="@string/task_detail"
+            android:textSize="30sp"
+            android:layout_marginTop="20sp"
             android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="タスクの詳細を入力">
 
-    <TextView
-        android:id="@+id/taskDate"
-        android:text="2023年5月2日"
-        android:textSize="30sp"
-        android:layout_marginTop="20sp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/taskDetail"
+                android:minLines="5"
+                android:maxLines="5"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/calnder"
-        android:onClick="showTimePickerDialog"
-        android:text="@string/task_date"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:backgroundTint="#7fffd4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/taskTime"
-        android:text="19時02分"
-        android:textSize="30sp"
-        android:layout_marginTop="20sp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/taskDate"
+            android:text="2023年5月2日"
+            android:textSize="30sp"
+            android:layout_marginTop="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/clock"
-        android:text="@string/task_time"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:backgroundTint="#ffd700"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/calnder"
+            android:onClick="showTimePickerDialog"
+            android:text="@string/task_date"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:backgroundTint="#7fffd4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/taskTime"
+            android:text="19時02分"
+            android:textSize="30sp"
+            android:layout_marginTop="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/clock"
+            android:text="@string/task_time"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:backgroundTint="#ffd700"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/send"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ff69b4"
-                android:gravity="center|bottom"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="20dp"
-                android:src="@drawable/send_button" />
-        </RelativeLayout>
-    </FrameLayout>
-</LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#ff69b4"
+                    android:gravity="center|bottom"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/send_button" />
+            </RelativeLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

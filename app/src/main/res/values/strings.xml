@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Reminder</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="task_title">[タスクのタイトル]</string>
+    <string name="task_detail">[タスクの詳細]</string>
+    <string name="task_date">[タスクの日程]</string>
+    <string name="task_time">[タスクの時間]</string>
 </resources>

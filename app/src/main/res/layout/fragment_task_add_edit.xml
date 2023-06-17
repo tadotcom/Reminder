@@ -13,7 +13,7 @@
         android:layout_height="30dp"/>
 
     <TextView
-        android:text="タスクのタイトル"
+        android:text="@string/task_title"
         android:textSize="30sp"
         android:layout_marginTop="50sp"
         android:layout_marginStart="20sp"
@@ -35,7 +35,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:text="タスクの詳細"
+        android:text="@string/task_detail"
         android:textSize="30sp"
         android:layout_marginTop="20sp"
         android:layout_marginStart="20sp"
@@ -70,7 +70,7 @@
     <Button
         android:id="@+id/calnder"
         android:onClick="showTimePickerDialog"
-        android:text="日付を選択"
+        android:text="@string/task_date"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:backgroundTint="#7fffd4"
@@ -88,7 +88,7 @@
 
     <Button
         android:id="@+id/clock"
-        android:text="時刻を選択"
+        android:text="@string/task_time"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:backgroundTint="#ffd700"

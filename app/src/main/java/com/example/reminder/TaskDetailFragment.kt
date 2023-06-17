@@ -49,9 +49,6 @@ class TaskDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding.viewModel = taskDetailViewModel
-        binding.lifecycleOwner = this
-
         val deleteBtnObserver = Observer<Boolean> { deletebtn ->
             if(taskDetailViewModel.deleteBtnLiveData.value == true) {
                 Toast.makeText(context , "削除ボタン", Toast.LENGTH_LONG).show();

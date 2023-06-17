@@ -52,22 +52,22 @@ class TaskDetailFragment : Fragment() {
         binding.viewModel = taskDetailViewModel
         binding.lifecycleOwner = this
 
-        val eeeObserver = Observer<Boolean> { aaa ->
+        val deleteBtnObserver = Observer<Boolean> { deletebtn ->
             if(taskDetailViewModel.deleteBtnLiveData.value == true) {
                 Toast.makeText(context , "削除ボタン", Toast.LENGTH_LONG).show();
                 Log.d("AAAAAAAAAAA", "削除ボタン")
             }
         }
 
-        val cccObserver = Observer<Boolean> { aaa ->
+        val editBtnObserver = Observer<Boolean> { editbtn ->
             if(taskDetailViewModel.editBtnLiveData.value == true) {
                 Toast.makeText(context , "編集ボタン", Toast.LENGTH_LONG).show();
                 Log.d("AAAAAAAAAAA", "編集ボタン")
             }
         }
 
-        taskDetailViewModel.deleteBtnLiveData.observe(viewLifecycleOwner, eeeObserver)
-        taskDetailViewModel.editBtnLiveData.observe(viewLifecycleOwner, cccObserver)
+        taskDetailViewModel.deleteBtnLiveData.observe(viewLifecycleOwner, deleteBtnObserver)
+        taskDetailViewModel.editBtnLiveData.observe(viewLifecycleOwner, editBtnObserver)
 
         return inflater.inflate(R.layout.fragment_task_detail, container, false)
     }

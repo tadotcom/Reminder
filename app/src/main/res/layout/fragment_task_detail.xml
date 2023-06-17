@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable name="view_model" type="com.example.reminder.TaskDetailViewModel" />
+        <variable name="viewModel" type="com.example.reminder.TaskDetailViewModel" />
     </data>
 
     <LinearLayout
@@ -90,7 +90,7 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/deleteBnt"
-                    android:onClick="@{() -> view_model.deleteBntClick()}"
+                    android:onClick="@{() -> viewModel.deleteBntClick()}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -103,7 +103,7 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/editBtn"
-                    android:onClick="@{() -> view_model.editBtnClick()}"
+                    android:onClick="@{() -> viewModel.editBtnClick()}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

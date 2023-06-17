@@ -1,7 +1,8 @@
 package com.example.reminder
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.example.reminder.databinding.FragmentMainBinding
 import com.example.reminder.databinding.FragmentTaskDetailBinding
 
 
@@ -20,28 +20,6 @@ class TaskDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        taskDetailViewModel.deleteBtnLiveData.observe(this, Observer { isEnabled ->
-//            //binding.button.isEnabled = isEnabled
-//            binding.deleteBnt.isEnabled = isEnabled
-//        })
-//
-//        val eeeObserver = Observer<Boolean> { aaa ->
-//            if(taskDetailViewModel.deleteBtnLiveData.value == true) {
-//                Toast.makeText(context , "削除ボタン", Toast.LENGTH_LONG).show();
-//                Log.d("AAAAAAAAAAA", "削除ボタン")
-//            }
-//        }
-//
-//        val cccObserver = Observer<Boolean> { aaa ->
-//            if(taskDetailViewModel.editBtnLiveData.value == true) {
-//                Toast.makeText(context , "編集ボタン", Toast.LENGTH_LONG).show();
-//                Log.d("AAAAAAAAAAA", "編集ボタン")
-//            }
-//        }
-//
-//        taskDetailViewModel.deleteBtnLiveData.observe(this, eeeObserver)
-//        taskDetailViewModel.editBtnLiveData.observe(this, cccObserver)
     }
 
     override fun onCreateView(
@@ -49,23 +27,40 @@ class TaskDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
+        binding.viewModel = taskDetailViewModel
+
+        //削除ボタンのオブザーブ
         val deleteBtnObserver = Observer<Boolean> { deletebtn ->
             if(taskDetailViewModel.deleteBtnLiveData.value == true) {
-                Toast.makeText(context , "削除ボタン", Toast.LENGTH_LONG).show();
-                Log.d("AAAAAAAAAAA", "削除ボタン")
+                DeleteTakDialog()
             }
         }
 
+        //編集ボタンのオブザーブ
         val editBtnObserver = Observer<Boolean> { editbtn ->
             if(taskDetailViewModel.editBtnLiveData.value == true) {
-                Toast.makeText(context , "編集ボタン", Toast.LENGTH_LONG).show();
-                Log.d("AAAAAAAAAAA", "編集ボタン")
+                val intent = Intent(context, TaskAddEditActivity::class.java)
+                startActivity(intent)
             }
         }
 
         taskDetailViewModel.deleteBtnLiveData.observe(viewLifecycleOwner, deleteBtnObserver)
         taskDetailViewModel.editBtnLiveData.observe(viewLifecycleOwner, editBtnObserver)
 
-        return inflater.inflate(R.layout.fragment_task_detail, container, false)
+        return binding.root
+    }
+
+    fun DeleteTakDialog() {
+        AlertDialog.Builder(context)
+            .setTitle("このタスクを削除しますか？")
+            .setMessage("タスクのタイトル")
+            .setPositiveButton("削除") { dialog, which ->
+                Toast.makeText(context , "タスクを削除しました", Toast.LENGTH_LONG).show();
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+            .create()
+            .show()
     }
 }

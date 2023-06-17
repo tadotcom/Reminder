@@ -1,4 +1,6 @@
 package com.example.reminder
 
-class TaskAddEditViewModel {
+import androidx.lifecycle.ViewModel
+
+class TaskAddEditViewModel : ViewModel(){
 }

@@ -65,7 +65,7 @@ class TaskDetailFragment : Fragment() {
             .setTitle("このタスクを削除しますか？")
             .setMessage("タスクのタイトル")
             .setPositiveButton("削除") { dialog, which ->
-                Toast.makeText(context , "タスクを削除しました", Toast.LENGTH_LONG).show();
+                Toast.makeText(context , "タスクを削除しました", Toast.LENGTH_LONG).show()
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
             }

@@ -5,9 +5,6 @@ import androidx.lifecycle.ViewModel
 
 class TaskDetailViewModel : ViewModel()  {
 
-    val taskTitleLiveData: MutableLiveData<String> by lazy { MutableLiveData<String>() }
-    val taskDetailLiveData: MutableLiveData<String> by lazy { MutableLiveData<String>() }
-    val taskDateLiveData: MutableLiveData<String> by lazy { MutableLiveData<String>() }
     val backBtnLiveData: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
     val deleteBtnLiveData: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
     val editBtnLiveData: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }

@@ -44,7 +44,8 @@ class TaskAddEditFragment : Fragment() {
             val dtp = context?.let { it1 ->
                 DatePickerDialog(
                     it1, { view, y, m, d ->
-                        Toast.makeText(context, "日付を設定！" + y + m + d, Toast.LENGTH_LONG).show()
+                        //Toast.makeText(context, "日付を設定！" + y + m + d, Toast.LENGTH_LONG).show()
+                        binding.taskDate.text = y.toString() + "年" + (m + 1).toString() + "月" + d.toString() + "日"
                     }, 2020, 12, 1
                 )
             }
@@ -57,7 +58,8 @@ class TaskAddEditFragment : Fragment() {
         binding.clock.setOnClickListener {
             val dtp = TimePickerDialog(
                 context, { view, h, m ->
-                    Toast.makeText(context, "日付を設定！" + h + m, Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context, "日付を設定！" + h + m, Toast.LENGTH_LONG).show()
+                    binding.taskTime.text = h.toString() + "時" + m.toString() + "分"
                 }, 24, 60, true
             )
             dtp.show()

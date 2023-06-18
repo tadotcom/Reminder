@@ -66,7 +66,7 @@
 
         <TextView
             android:id="@+id/taskDate"
-            android:text="2023年5月2日"
+            android:text="2021年1月1日"
             android:textSize="30sp"
             android:layout_marginTop="20sp"
             android:gravity="center"
@@ -85,7 +85,7 @@
 
         <TextView
             android:id="@+id/taskTime"
-            android:text="19時02分"
+            android:text="23時59分"
             android:textSize="30sp"
             android:layout_marginTop="20sp"
             android:gravity="center"

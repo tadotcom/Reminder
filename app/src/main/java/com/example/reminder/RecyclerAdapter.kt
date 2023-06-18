@@ -1,5 +1,6 @@
 package com.example.reminder
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,7 @@ class RecyclerAdapter() : RecyclerView.Adapter<ViewHolderList>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderList {
         //データを取得する
-        //taskDetailList = listOf(repository.fetchTask())
+        //Log.d("カネヒキリ1", repository.fetchTask())
 
         val itemXml = LayoutInflater.from(parent.context).inflate(R.layout.task_list,parent,false)
         return ViewHolderList(itemXml)

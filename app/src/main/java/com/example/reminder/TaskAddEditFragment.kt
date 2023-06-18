@@ -1,7 +1,10 @@
 package com.example.reminder
 
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.reminder.databinding.FragmentMainBinding
@@ -78,5 +82,14 @@ class TaskAddEditFragment : Fragment() {
         taskAddEditViewModel.sendBtnLiveData.observe(viewLifecycleOwner, deleteBtnObserver)
 
         return binding.root
+    }
+
+    //alarmManagerを設定するためのメソッド
+    fun settingAlarmManager(context: Context, timeDiff: Long, id: Int, ) {
+        val alarmManager = context.getSystemService(AppCompatActivity.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, AlarmManagerReceiver::class.java)
+        intent.putExtra("id", id)
+        val pendingIntent = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeDiff, pendingIntent)
     }
 }

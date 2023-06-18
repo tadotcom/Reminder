@@ -29,7 +29,6 @@
 
         <TextView
             android:id="@+id/title"
-            android:text="@{viewModel.taskTitleLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -45,7 +44,6 @@
 
         <TextView
             android:id="@+id/detail"
-            android:text="@{viewModel.taskDetailLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -61,7 +59,6 @@
 
         <TextView
             android:id="@+id/taskDate"
-            android:text="@{viewModel.taskDateLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"

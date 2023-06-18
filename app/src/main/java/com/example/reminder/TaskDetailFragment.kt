@@ -41,24 +41,24 @@ class TaskDetailFragment : Fragment() {
         binding.viewModel = taskDetailViewModel
 
         //タスクタイトル
-        if (taskTitle.isNotBlank()) {
-            binding.title.text = taskTitle
+        if (!taskTitle.isNullOrBlank()) {
+            binding.title.setText(taskTitle)
         } else {
-            binding.title.text = "タスクタイトルなし"
+            binding.title.setText("タスクタイトルなし")
         }
 
         //タスク詳細
-        if (taskDetail.isNotBlank()) {
-            binding.detail.text = taskDetail
+        if (!taskDetail.isNullOrBlank()) {
+            binding.detail.setText(taskDetail)
         } else {
-            binding.detail.text = "タスク詳細なし"
+            binding.detail.setText("タスク詳細なし")
         }
 
         //タスク日時
-        if (taskDate.isNotBlank()) {
-            binding.taskDate.text = taskDate
+        if (!taskDate.isNullOrBlank()) {
+            binding.taskDate.setText(taskDate)
         } else {
-            binding.taskDate.text = "日時指定なし"
+            binding.taskDate.setText("日時指定なし")
         }
 
         //バックボタンのオブザーブ

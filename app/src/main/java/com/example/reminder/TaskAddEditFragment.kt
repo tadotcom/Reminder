@@ -61,7 +61,7 @@ class TaskAddEditFragment : Fragment() {
 
         //タスク年月日
         if (taskDate.isNotBlank()) {
-            binding.taskDate.setText("2021年1月1日")
+            binding.taskDate.setText("2021年2月2日")
         } else {
             binding.taskDate.setText("")
         }

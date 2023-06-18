@@ -29,6 +29,7 @@
 
         <TextView
             android:id="@+id/title"
+            android:text="@{viewModel.taskTitleLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -44,6 +45,7 @@
 
         <TextView
             android:id="@+id/detail"
+            android:text="@{viewModel.taskDetailLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -59,26 +61,10 @@
 
         <TextView
             android:id="@+id/taskDate"
+            android:text="@{viewModel.taskDateLiveData}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:text="2023年5月2日"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:layout_marginTop="20sp"
-            android:text="@string/task_time"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/taskTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:text="19時02分"
             android:textSize="30sp" />
 
         <FrameLayout

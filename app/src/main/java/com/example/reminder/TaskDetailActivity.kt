@@ -8,6 +8,11 @@ class TaskDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_detail)
 
+        val taskid = intent.getStringExtra("taskid")
+        val taskTitle = intent.getStringExtra("taskTitle")
+        val taskDetail = intent.getStringExtra("taskDetail")
+        val taskDate = intent.getStringExtra("taskDate")
+
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragment = TaskDetailFragment()

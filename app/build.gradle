@@ -58,4 +58,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
     apply plugin: 'com.google.gms.google-services'
+
+    //レトロフィット
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
 }

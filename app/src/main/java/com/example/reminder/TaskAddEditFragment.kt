@@ -1,5 +1,7 @@
 package com.example.reminder
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -35,6 +37,30 @@ class TaskAddEditFragment : Fragment() {
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        //日付指定
+        binding.calnder.setOnClickListener {
+            val dtp = context?.let { it1 ->
+                DatePickerDialog(
+                    it1, { view, y, m, d ->
+                        Toast.makeText(context, "日付を設定！" + y + m + d, Toast.LENGTH_LONG).show()
+                    }, 2020, 12, 1
+                )
+            }
+            if (dtp != null) {
+                dtp.show()
+            }
+        }
+
+        //日時指定
+        binding.clock.setOnClickListener {
+            val dtp = TimePickerDialog(
+                context, { view, h, m ->
+                    Toast.makeText(context, "日付を設定！" + h + m, Toast.LENGTH_LONG).show()
+                }, 24, 60, true
+            )
+            dtp.show()
         }
 
         //登録ボタンのオブザーブ

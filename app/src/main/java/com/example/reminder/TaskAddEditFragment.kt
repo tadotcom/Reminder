@@ -24,8 +24,18 @@ class TaskAddEditFragment : Fragment() {
     private val taskAddEditViewModel: TaskAddEditViewModel by viewModels()
     private lateinit var binding: FragmentTaskAddEditBinding
 
+    lateinit var taskid: String
+    lateinit var taskTitle: String
+    lateinit var taskDetail: String
+    lateinit var taskDate: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        taskid = activity?.intent?.getStringExtra("taskId").toString()
+        taskTitle = activity?.intent?.getStringExtra("taskTitle").toString()
+        taskDetail = activity?.intent?.getStringExtra("taskDetail").toString()
+        taskDate = activity?.intent?.getStringExtra("taskDate").toString()
     }
 
     override fun onCreateView(
@@ -34,6 +44,34 @@ class TaskAddEditFragment : Fragment() {
     ): View? {
         binding = FragmentTaskAddEditBinding.inflate(inflater, container, false)
         binding.viewModel = taskAddEditViewModel
+
+        //タスクタイトル
+        if (taskTitle.isNotBlank()) {
+            binding.taskTitle.setText(taskTitle)
+        } else {
+            binding.taskTitle.setText("")
+        }
+
+        //タスク詳細
+        if (taskDetail.isNotBlank()) {
+            binding.taskDetail.setText(taskDetail)
+        } else {
+            binding.taskDetail.setText("")
+        }
+
+        //タスク年月日
+        if (taskDate.isNotBlank()) {
+            binding.taskDate.setText("2021年1月1日")
+        } else {
+            binding.taskDate.setText("")
+        }
+
+        //タスク時刻
+        if (taskDate.isNotBlank()) {
+            binding.taskTime.setText("23時59分")
+        } else {
+            binding.taskTime.setText("")
+        }
 
         //バックボタンのオブザーブ
         val backBtnObserver = Observer<Boolean> { backbtn ->

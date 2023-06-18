@@ -46,28 +46,28 @@ class TaskAddEditFragment : Fragment() {
         binding.viewModel = taskAddEditViewModel
 
         //タスクタイトル
-        if (taskTitle.isNotBlank()) {
+        if (!taskTitle.isNullOrBlank()) {
             binding.taskTitle.setText(taskTitle)
         } else {
             binding.taskTitle.setText("")
         }
 
         //タスク詳細
-        if (taskDetail.isNotBlank()) {
+        if (!taskDetail.isNullOrBlank()) {
             binding.taskDetail.setText(taskDetail)
         } else {
             binding.taskDetail.setText("")
         }
 
         //タスク年月日
-        if (taskDate.isNotBlank()) {
+        if (!taskDate.isNullOrBlank()) {
             binding.taskDate.setText("2021年2月2日")
         } else {
             binding.taskDate.setText("")
         }
 
         //タスク時刻
-        if (taskDate.isNotBlank()) {
+        if (!taskDate.isNullOrBlank()) {
             binding.taskTime.setText("23時59分")
         } else {
             binding.taskTime.setText("")

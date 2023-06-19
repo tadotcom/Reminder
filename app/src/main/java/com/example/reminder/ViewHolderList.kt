@@ -24,7 +24,7 @@ class ViewHolderList(itemView: View) : RecyclerView.ViewHolder(itemView) {
             intent.putExtra("taskId", taskid[position])
             intent.putExtra("taskTitle", taskTitle[position])
             intent.putExtra("taskDetail", taskDetail[position])
-            intent.putExtra("taskDetail", taskDate[position])
+            intent.putExtra("taskDate", taskDate[position])
             itemView.getContext().startActivity(intent);
         }
     }

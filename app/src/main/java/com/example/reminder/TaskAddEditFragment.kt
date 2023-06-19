@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +30,12 @@ class TaskAddEditFragment : Fragment() {
     lateinit var taskDetail: String
     lateinit var taskDate: String
 
+    var year:String = ""
+    var month:String = ""
+    var day:String = ""
+    var hour:String = ""
+    var minute:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,6 +43,29 @@ class TaskAddEditFragment : Fragment() {
         taskTitle = activity?.intent?.getStringExtra("taskTitle").toString()
         taskDetail = activity?.intent?.getStringExtra("taskDetail").toString()
         taskDate = activity?.intent?.getStringExtra("taskDate").toString()
+
+        if (taskTitle.equals("null")) {
+            taskTitle = ""
+        }
+
+        if (taskDetail.equals("null")) {
+            taskDetail = ""
+        }
+
+        if (taskDate.equals("null")) {
+            taskDate = ""
+            year = "2020"
+            month = "01"
+            day = "01"
+            hour = "01"
+            minute = "01"
+        } else {
+            year = taskDate.substring(0, 4)
+            month = taskDate.substring(5, 7)
+            day = taskDate.substring(8, 10)
+            hour = taskDate.substring(11, 13)
+            minute = taskDate.substring(14, 16)
+        }
     }
 
     override fun onCreateView(
@@ -61,14 +91,14 @@ class TaskAddEditFragment : Fragment() {
 
         //タスク年月日
         if (!taskDate.isNullOrBlank()) {
-            binding.taskDate.setText("2021年2月2日")
+            binding.taskDate.setText(year+ "年"+ month + "月" + day + "日")
         } else {
             binding.taskDate.setText("")
         }
 
         //タスク時刻
         if (!taskDate.isNullOrBlank()) {
-            binding.taskTime.setText("23時59分")
+            binding.taskTime.setText(hour+ "時" + minute +"分")
         } else {
             binding.taskTime.setText("")
         }
@@ -88,7 +118,7 @@ class TaskAddEditFragment : Fragment() {
                     it1, { view, y, m, d ->
                         //Toast.makeText(context, "日付を設定！" + y + m + d, Toast.LENGTH_LONG).show()
                         binding.taskDate.text = y.toString() + "年" + (m + 1).toString() + "月" + d.toString() + "日"
-                    }, 2020, 12, 1
+                    }, year.toInt(), month.toInt(), day.toInt()
                 )
             }
             if (dtp != null) {
@@ -102,7 +132,7 @@ class TaskAddEditFragment : Fragment() {
                 context, { view, h, m ->
                     //Toast.makeText(context, "日付を設定！" + h + m, Toast.LENGTH_LONG).show()
                     binding.taskTime.text = h.toString() + "時" + m.toString() + "分"
-                }, 24, 60, true
+                }, hour.toInt(), minute.toInt(), true
             )
             dtp.show()
         }
@@ -110,6 +140,33 @@ class TaskAddEditFragment : Fragment() {
         //登録ボタンのオブザーブ
         val deleteBtnObserver = Observer<Boolean> { deletebtn ->
             if(taskAddEditViewModel.sendBtnLiveData.value == true) {
+
+                //タスクのタイトル
+                if(binding.taskTitle.text.isNullOrBlank()) {
+                    binding.taskTitle.setError("タスクのタイトルを入力してください")
+                    return@Observer
+                }
+
+                //タスクの詳細
+                if(binding.taskDetail.text.isNullOrBlank()) {
+                    binding.taskDetail.setError("タスクの詳細を入力してください")
+                    return@Observer
+                }
+
+                if(binding.taskDate.text.isNullOrBlank()) {
+                    binding.taskDate.setError("タスクの日程を入力してください")
+                    binding.taskDate.setText("日程を入力してください")
+                    binding.taskDate.setTextColor(Color.RED)
+                    return@Observer
+                }
+
+                if(binding.taskTime.text.isNullOrBlank()) {
+                    binding.taskTime.setError("タスクの時刻を入力してください")
+                    binding.taskTime.setText("時刻を入力してください")
+                    binding.taskTime.setTextColor(Color.RED)
+                    return@Observer
+                }
+
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(context , "タスクの登録が完了しました", Toast.LENGTH_LONG).show()

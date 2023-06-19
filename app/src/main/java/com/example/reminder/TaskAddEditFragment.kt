@@ -118,6 +118,7 @@ class TaskAddEditFragment : Fragment() {
                     it1, { view, y, m, d ->
                         //Toast.makeText(context, "日付を設定！" + y + m + d, Toast.LENGTH_LONG).show()
                         binding.taskDate.text = y.toString() + "年" + (m + 1).toString() + "月" + d.toString() + "日"
+                        binding.taskDate.setTextColor(Color.BLACK)
                     }, year.toInt(), month.toInt(), day.toInt()
                 )
             }
@@ -132,6 +133,7 @@ class TaskAddEditFragment : Fragment() {
                 context, { view, h, m ->
                     //Toast.makeText(context, "日付を設定！" + h + m, Toast.LENGTH_LONG).show()
                     binding.taskTime.text = h.toString() + "時" + m.toString() + "分"
+                    binding.taskTime.setTextColor(Color.BLACK)
                 }, hour.toInt(), minute.toInt(), true
             )
             dtp.show()
@@ -154,14 +156,12 @@ class TaskAddEditFragment : Fragment() {
                 }
 
                 if(binding.taskDate.text.isNullOrBlank()) {
-                    binding.taskDate.setError("タスクの日程を入力してください")
                     binding.taskDate.setText("日程を入力してください")
                     binding.taskDate.setTextColor(Color.RED)
                     return@Observer
                 }
 
                 if(binding.taskTime.text.isNullOrBlank()) {
-                    binding.taskTime.setError("タスクの時刻を入力してください")
                     binding.taskTime.setText("時刻を入力してください")
                     binding.taskTime.setTextColor(Color.RED)
                     return@Observer

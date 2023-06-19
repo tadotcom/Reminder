@@ -97,8 +97,8 @@ class TaskDetailFragment : Fragment() {
 
     fun DeleteTakDialog() {
         AlertDialog.Builder(context)
+            .setTitle("このタスクを削除しますか？")
             .setMessage(taskTitle)
-            .setMessage("タスクのタイトル")
             .setPositiveButton("削除") { dialog, which ->
                 Toast.makeText(context, "タスクを削除しました", Toast.LENGTH_LONG).show()
                 val intent = Intent(context, MainActivity::class.java)

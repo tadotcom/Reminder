@@ -83,7 +83,7 @@ class TaskDetailFragment : Fragment() {
                 intent.putExtra("taskId", taskid)
                 intent.putExtra("taskTitle", taskTitle)
                 intent.putExtra("taskDetail", taskDetail)
-                intent.putExtra("taskDetail", taskDate)
+                intent.putExtra("taskDate", taskDate)
                 startActivity(intent)
             }
         }
@@ -97,7 +97,7 @@ class TaskDetailFragment : Fragment() {
 
     fun DeleteTakDialog() {
         AlertDialog.Builder(context)
-            .setTitle("このタスクを削除しますか？")
+            .setMessage(taskTitle)
             .setMessage("タスクのタイトル")
             .setPositiveButton("削除") { dialog, which ->
                 Toast.makeText(context, "タスクを削除しました", Toast.LENGTH_LONG).show()

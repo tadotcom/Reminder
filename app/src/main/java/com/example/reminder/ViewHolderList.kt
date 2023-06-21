@@ -1,6 +1,7 @@
 package com.example.reminder
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -19,6 +20,8 @@ class ViewHolderList(itemView: View) : RecyclerView.ViewHolder(itemView) {
     init {
         itemView.setOnClickListener {
             val position:Int =adapterPosition
+
+            Log.d("CCCC5", "")
 
             val intent: Intent = Intent(itemView.context ,TaskDetailActivity().javaClass)
             intent.putExtra("taskId", taskid[position])
